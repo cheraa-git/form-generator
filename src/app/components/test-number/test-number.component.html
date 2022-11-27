@@ -1,6 +1,9 @@
-<div class="wrap">
-  <p class="label">Возраст</p>
-  <input class="input" type="number" [defaultValue]="value">
+<div class="wrap display">
+  <p class="label">
+    {{data.label}}<span *ngIf="data.required">*</span>
+  </p>
+  <input class="input" type="text" (keyup)="onChange($event)" [value]="data.value"
+         [placeholder]="data.placeholder || ''">
   <div class="input-controls">
     <button (click)="setValue(1)">
       <img src="../../../assets/caret-up.svg" alt="sort-up">
@@ -10,3 +13,4 @@
     </button>
   </div>
 </div>
+<p *ngIf="data.description" class="description">{{data.description}}</p>

@@ -1,1 +1,23 @@
-<p>form-page works!</p>
+<div class="container">
+  <h1 class="title">Анкета</h1>
+
+  <h1 *ngIf="loading">Loading...</h1>
+  <h3 *ngIf="formDataService.errorMessage">Error</h3>
+
+  <div *ngIf="!loading">
+    <div *ngFor="let item of formDataService.formData">
+      <app-test-input [data]="item | inputType" *ngIf="item.type === 'input'"></app-test-input>
+      <app-test-number [data]="item | numberType" *ngIf="item.type === 'number'"></app-test-number>
+      <app-test-select [data]="item | selectType " *ngIf="item.type === 'select'"></app-test-select>
+      <app-test-checkbox [data]="item | checkboxType" *ngIf="item.type === 'checkbox'"></app-test-checkbox>
+    </div>
+    <button class="send-button btn-disabled"
+            (click)="sendDataHandler()"
+            [class.btn-disabled]="!formIsFilled"
+            [disabled]="!formIsFilled"
+    >
+      Отправить
+    </button>
+  </div>
+
+</div>

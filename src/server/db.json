@@ -1,0 +1,269 @@
+{
+  "forms": [
+    {
+      "id": "1",
+      "data": [
+        {
+          "type": "input",
+          "label": "Имя",
+          "required": true,
+          "value": "Александр"
+        },
+        {
+          "type": "number",
+          "label": "Возраст",
+          "required": true,
+          "value": "20"
+        },
+        {
+          "type": "select",
+          "label": "Семейное положение",
+          "required": true,
+          "choices": [
+            "Не женат / не замужем",
+            "Женат / замужем"
+          ],
+          "currentChoice": 0
+        },
+        {
+          "type": "input",
+          "label": "ВУЗ",
+          "description": "Укажите заведения, в которых вы учились",
+          "placeholder": "Например ВолгГУ",
+          "extraValues": [
+            "МАДИ",
+            "МГУ"
+          ],
+          "value": "МИРЭА"
+        },
+        {
+          "type": "select",
+          "label": "Место рождения",
+          "choices": [
+            "Не важно",
+            "Астрахань",
+            "Волгоград",
+            "Волжский",
+            "Ростов-на-Дону",
+            "Саратов"
+          ],
+          "currentChoice": 5
+        },
+        {
+          "type": "checkbox",
+          "label": "Навыки",
+          "required": true,
+          "choices": [
+            {
+              "label": "Общение",
+              "checked": true
+            },
+            {
+              "label": "Иностранные языки",
+              "checked": true
+            },
+            {
+              "label": "Бег с препятствиями",
+              "checked": false
+            },
+            {
+              "label": "Быстрое чтение",
+              "checked": false
+            },
+            {
+              "label": "Самозащита",
+              "checked": true
+            },
+            {
+              "label": "Вождение",
+              "checked": true
+            },
+            {
+              "label": "Программирование",
+              "checked": true
+            },
+            {
+              "label": "Управление вертолетом",
+              "checked": false
+            },
+            {
+              "label": "Оперное пение",
+              "checked": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "data": [
+        {
+          "type": "input",
+          "label": "Имя",
+          "required": true
+        },
+        {
+          "type": "number",
+          "label": "Возраст",
+          "required": true
+        },
+        {
+          "type": "select",
+          "label": "Семейное положение",
+          "required": true,
+          "choices": [
+            "Не женат / не замужем",
+            "Женат / замужем"
+          ]
+        },
+        {
+          "type": "input",
+          "label": "ВУЗ",
+          "description": "Укажите заведения, в которых вы учились",
+          "placeholder": "Например ВолгГУ"
+        },
+        {
+          "type": "select",
+          "label": "Место рождения",
+          "choices": [
+            "Не важно",
+            "Астрахань",
+            "Волгоград",
+            "Волжский",
+            "Ростов-на-Дону",
+            "Саратов"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "label": "Навыки",
+          "required": true,
+          "choices": [
+            {
+              "label": "Общение",
+              "checked": false
+            },
+            {
+              "label": "Иностранные языки",
+              "checked": false
+            },
+            {
+              "label": "Бег с препятствиями",
+              "checked": false
+            },
+            {
+              "label": "Быстрое чтение",
+              "checked": false
+            },
+            {
+              "label": "Самозащита",
+              "checked": false
+            },
+            {
+              "label": "Вождение",
+              "checked": false
+            },
+            {
+              "label": "Программирование",
+              "checked": false
+            },
+            {
+              "label": "Управление вертолетом",
+              "checked": false
+            },
+            {
+              "label": "Оперное пение",
+              "checked": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "data": [
+        {
+          "type": "input",
+          "label": "Имя",
+          "required": true
+        },
+        {
+          "type": "number",
+          "label": "Возраст",
+          "required": true
+        },
+        {
+          "type": "select",
+          "label": "Семейное положение",
+          "required": true,
+          "choices": [
+            "Не женат / не замужем",
+            "Женат / замужем"
+          ]
+        },
+        {
+          "type": "input",
+          "label": "ВУЗ",
+          "description": "Укажите заведения, в которых вы учились",
+          "placeholder": "Например ВолгГУ"
+        },
+        {
+          "type": "select",
+          "label": "Место рождения",
+          "choices": [
+            "Не важно",
+            "Астрахань",
+            "Волгоград",
+            "Волжский",
+            "Ростов-на-Дону",
+            "Саратов"
+          ],
+          "currentChoice": 0
+        },
+        {
+          "type": "checkbox",
+          "label": "Навыки",
+          "required": true,
+          "choices": [
+            {
+              "label": "Общение",
+              "checked": false
+            },
+            {
+              "label": "Иностранные языки",
+              "checked": false
+            },
+            {
+              "label": "Бег с препятствиями",
+              "checked": false
+            },
+            {
+              "label": "Быстрое чтение",
+              "checked": false
+            },
+            {
+              "label": "Самозащита",
+              "checked": false
+            },
+            {
+              "label": "Вождение",
+              "checked": false
+            },
+            {
+              "label": "Программирование",
+              "checked": false
+            },
+            {
+              "label": "Управление вертолетом",
+              "checked": false
+            },
+            {
+              "label": "Оперное пение",
+              "checked": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

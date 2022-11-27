@@ -16,7 +16,7 @@
 
 }
   .input-controls {
-    margin: auto 5px ;
+    margin: 0 5px ;
     height: 44px;
 
 
@@ -25,8 +25,9 @@
       border: none;
       background: #DFDFDF;
       border-radius: 2px;
-
+      margin: 0;
       width: 30px;
+      height: 23px;
     }
 
     img {

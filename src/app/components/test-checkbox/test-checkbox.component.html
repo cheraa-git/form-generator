@@ -1,1 +1,29 @@
-<p>test-checkbox works!</p>
+<div class="wrap display" >
+  <p class="label">
+    {{data.label}}<span *ngIf="data.required">*</span>
+  </p>
+  <div class="container">
+
+    <div class="checkbox" *ngFor="let choice of data.choices; let i = index">
+      <div class="checkbox-square" (click)="onChange(i, choice)" [class.checked]="choice.checked">
+        <img *ngIf="choice.checked" src="../../../assets/check.png" alt="check">
+      </div>
+      <label>
+        <input type="checkbox" [checked]="choice.checked" (change)="onChange(i, choice)">
+        <span>{{choice.label}}</span>
+      </label>
+    </div>
+
+    <div class="checkbox" *ngIf="data.choices.length > 1">
+      <div class="checkbox-square" (click)="changeAll()" [class.checked]="allIsChecked">
+        <img *ngIf="allIsChecked" src="../../../assets/check.png" alt="check">
+      </div>
+      <label>
+        <input type="checkbox" (change)="changeAll()">
+        <span style="font-weight: 600">Выделить все</span>
+      </label>
+    </div>
+
+  </div>
+</div>
+<p *ngIf="data.description" class="description">{{data.description}}</p>

@@ -1,16 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import { FormItem, SelectData } from "../types"
+import { SelectData } from "../types"
 
 @Pipe({
-  name: 'setFormItemType'
+  name: 'selectType'
 })
-export class SetFormItemTypePipe implements PipeTransform {
+export class SelectTypePipe implements PipeTransform {
 
-  transform(formItem: FormItem): SelectData {
-    if (formItem.type === 'select') {
-      return formItem as SelectData
-    }
-    return formItem
+  transform(formItem: SelectData): SelectData {
+    return formItem as SelectData
   }
 
 }

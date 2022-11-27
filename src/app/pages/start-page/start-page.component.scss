@@ -1,0 +1,50 @@
+
+.container {
+  max-width: 800px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-btn {
+  border: 1px solid #ccc;
+  height: 3rem;
+  background: #FFE783;
+  margin: 1rem;
+
+  &:hover {
+    background: #FBE891;
+    color: #4C452B;
+    cursor: pointer;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  padding: 1rem;
+
+  input {
+    height: 30px;
+    outline: none;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    height: 30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: rgb(255, 239, 175);
+
+  }
+}

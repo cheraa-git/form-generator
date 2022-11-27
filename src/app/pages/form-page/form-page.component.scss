@@ -1,0 +1,37 @@
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.send-button {
+  width: 120px;
+  height: 40px;
+  background: #FFE783;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px #C3B365;
+  margin-left: calc(140px);
+
+  &:hover {
+    background: #FBE891;
+    color: #4C452B;
+    cursor: pointer;
+  }
+}
+
+.btn-disabled {
+  background: #FBE891;
+  color: #978B57;
+
+  &:hover {
+    background: #FBE891;
+    color: #978B57;
+  }
+}
+
+

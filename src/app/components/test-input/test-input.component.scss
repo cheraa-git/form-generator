@@ -1,0 +1,60 @@
+.extra_one {
+  max-width: calc(300px - 1.5rem);
+  width: 100%;
+}
+
+.extra_multiple {
+  max-width: calc(300px - 1.5rem + 26px + .5rem);;
+  width: 100%;
+  height: min-content;
+}
+
+
+.default-input {
+  max-width: calc(300px - 3rem);
+}
+
+.extra-input {
+  display: flex;
+  margin-top: .5rem;
+  position: relative;
+}
+
+.add-btn {
+  display: flex;
+  margin-left: .5rem;
+  align-items: center;
+  height: 46px;
+  cursor: pointer;
+  margin-top: auto;
+
+
+  img {
+    width: 26px;
+    height: 26px;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  span {
+    margin-left: .25rem;
+  }
+}
+
+.remove-btn {
+  height: 46px;
+  align-items: center;
+  margin-left: .5rem;
+
+  svg {
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    background: #FC6363;
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+}
+
