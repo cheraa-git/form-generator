@@ -1,0 +1,12 @@
+<div class="wrap">
+  <p class="label">Возраст</p>
+  <input class="input" type="number" [defaultValue]="value">
+  <div class="input-controls">
+    <button (click)="setValue(1)">
+      <img src="../../../assets/caret-up.svg" alt="sort-up">
+    </button>
+    <button>
+      <img (click)="setValue(-1)" src="../../../assets/caret-down.svg" alt="sort-up">
+    </button>
+  </div>
+</div>
