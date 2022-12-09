@@ -6,10 +6,16 @@
 
   <div *ngIf="!loading">
     <div *ngFor="let item of formDataService.formData">
-      <app-test-input [data]="item | inputType" *ngIf="item.type === 'input'"></app-test-input>
-      <app-test-number [data]="item | numberType" *ngIf="item.type === 'number'"></app-test-number>
-      <app-test-select [data]="item | selectType " *ngIf="item.type === 'select'"></app-test-select>
-      <app-test-checkbox [data]="item | checkboxType" *ngIf="item.type === 'checkbox'"></app-test-checkbox>
+      <app-test-input [data]="item | inputType" *ngIf="item.type === 'input'" [(ngModel)]="item.value"></app-test-input>
+
+      <app-test-number [data]="item | numberType" *ngIf="item.type === 'number'"
+                       [(ngModel)]="item.value"></app-test-number>
+
+      <app-test-select [data]="item | selectType " *ngIf="item.type === 'select'"
+                       [(ngModel)]="item.currentChoice"></app-test-select>
+
+      <app-test-checkbox [data]="item | checkboxType" *ngIf="item.type === 'checkbox'"
+                        [(ngModel)]="item.choices" ></app-test-checkbox>
     </div>
     <button class="send-button btn-disabled"
             (click)="sendDataHandler()"

@@ -18,12 +18,11 @@
 
         >
       </div>
-
       <div class="extra-input" *ngFor="let val of data.extraValues; let i = index; trackBy: trackByFn">
         <input
           *ngIf="data.extraValues"
-          class="input qwer"
-          [(ngModel)]="data.extraValues[i]"
+          class="input"
+          [value]="data.extraValues[i]"
           [placeholder]="data.placeholder || ''"
         >
         <div *ngIf="data.extraValues" class="remove-btn" (click)="removeExtraInput(i)">

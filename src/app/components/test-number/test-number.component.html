@@ -2,7 +2,7 @@
   <p class="label">
     {{data.label}}<span *ngIf="data.required">*</span>
   </p>
-  <input class="input" type="text" (keyup)="onChange($event)" [value]="data.value"
+  <input class="input" type="text" [(ngModel)]="data.value"
          [placeholder]="data.placeholder || ''">
   <div class="input-controls">
     <button (click)="setValue(1)">

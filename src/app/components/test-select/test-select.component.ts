@@ -1,26 +1,39 @@
-import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  Self
+} from '@angular/core'
 import { SelectData } from "../../types"
+import { ControlValueAccessor, NgControl } from "@angular/forms"
 
 @Component({
   selector: 'app-test-select',
   templateUrl: './test-select.component.html',
-  styleUrls: ['./test-select.component.scss']
+  styleUrls: ['./test-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TestSelectComponent implements OnInit {
+export class TestSelectComponent implements ControlValueAccessor {
+  private _onChange: (value: number) => void
+  private _onTouch: () => void
   @Input() data: SelectData
+
 
   selectIsOpen: boolean = false
   currChoice = ''
 
 
-  constructor(private el: ElementRef) {
+  constructor(
+    private el: ElementRef,
+    @Self() private readonly ngControl: NgControl,
+    private readonly changeDetector: ChangeDetectorRef
+  ) {
+    this.ngControl.valueAccessor = this
   }
 
-  ngOnInit(): void {
-    if (this.data.currentChoice !== undefined) {
-      this.currChoice = this.data.choices[this.data.currentChoice]
-    }
-  }
 
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {
@@ -31,23 +44,6 @@ export class TestSelectComponent implements OnInit {
     }
   }
 
-  onKeyUp(event: any, data: SelectData) {
-    const { choices, currentChoice, required } = data
-    const input = event.target as HTMLInputElement
-    console.log(event.key)
-
-    if (!required && event.key.toLowerCase() === 'backspace') {
-      if (!input.value) {
-        this.data.currentChoice = undefined
-      }
-      return
-    }
-    if (choices && currentChoice !== undefined) {
-      input.value = choices[currentChoice]
-    } else {
-      input.value = ''
-    }
-  }
 
   setOpenState(state: boolean) {
     this.selectIsOpen = state
@@ -55,7 +51,22 @@ export class TestSelectComponent implements OnInit {
 
   setCurrent(index: number) {
     this.data.currentChoice = index
-    this.currChoice = this.data.choices[this.data.currentChoice]
     this.selectIsOpen = false
+  }
+
+  registerOnChange(fn: (value: number) => void) {
+    this._onChange = fn
+  }
+
+  registerOnTouched(fn: () => void) {
+    this._onTouch = fn
+  }
+
+  writeValue(value: number) {
+    if (value) {
+      this._onChange(value)
+      this.currChoice = this.data.choices[value]
+      this.changeDetector.detectChanges()
+    }
   }
 }

@@ -5,12 +5,7 @@
   <div class="select">
 
     <div class="input">
-      <input type="text"
-             (keyup)="onKeyUp($event, data)"
-             [value]="currChoice"
-             (focusin)="setOpenState(true)"
-             [placeholder]="data.placeholder || ''"
-      >
+      <div (click)="setOpenState(true)">{{currChoice}}</div>
     </div>
     <div class="select-options" *ngIf="selectIsOpen">
       <p

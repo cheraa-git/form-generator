@@ -43,11 +43,11 @@
             "Не важно",
             "Астрахань",
             "Волгоград",
-            "Волжский",
+            "Саратов",
             "Ростов-на-Дону",
             "Саратов"
           ],
-          "currentChoice": 5
+          "currentChoice": 4
         },
         {
           "type": "checkbox",
@@ -68,7 +68,7 @@
             },
             {
               "label": "Быстрое чтение",
-              "checked": false
+              "checked": true
             },
             {
               "label": "Самозащита",
@@ -88,7 +88,7 @@
             },
             {
               "label": "Оперное пение",
-              "checked": false
+              "checked": true
             }
           ]
         }

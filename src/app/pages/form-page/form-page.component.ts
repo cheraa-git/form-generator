@@ -26,9 +26,13 @@ export class FormPageComponent {
       this.formDataService.fetchData(param['id']).subscribe({
         next: () => this.loading = false,
         error: (err) => {
+          if (err.status === 404) {
+            alert('Форма с таким id не найдена :(')
+          } else {
+            alert('Внутренняя ошибка сайта, повторите попытку позже...')
+          }
           this.loading = false
-          alert('Ошибка, форма с таким id не найдена')
-          console.log(err)
+          console.error(err)
           this.router.navigate(['/'])
         }
       })
@@ -57,9 +61,18 @@ export class FormPageComponent {
 
   sendDataHandler() {
     this.loading = true
-    this.formDataService.saveForm().subscribe(() => {
-      this.loading = false
-      alert("Данные сохранены")
+    this.formDataService.saveForm().subscribe({
+      next: () => {
+        this.loading = false
+        alert("Данные сохранены")
+      },
+      error: (err) => {
+        console.error(err)
+        this.loading = false
+        alert("Ошибка, не удалось сохранить форму")
+      }
     })
   }
+
+
 }
