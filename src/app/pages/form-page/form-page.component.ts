@@ -1,22 +1,25 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core'
 import { FormDataService } from "../../services/form-data.service"
 import { ActivatedRoute, Router } from "@angular/router"
+import { FormData } from "../../types"
 
 @Component({
   selector: 'app-form-page',
   templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss']
+  styleUrls: ['./form-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
+
 export class FormPageComponent {
-  title = 'form-generator'
   loading = false
   formIsFilled: boolean = true
-
 
   constructor(
     public formDataService: FormDataService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private readonly changeDetector: ChangeDetectorRef
   ) {
   }
 
@@ -24,7 +27,10 @@ export class FormPageComponent {
     this.activeRoute.params.subscribe(param => {
       this.loading = true
       this.formDataService.fetchData(param['id']).subscribe({
-        next: () => this.loading = false,
+        next: () => {
+          this.loading = false
+          this.changeDetector.detectChanges()
+        },
         error: (err) => {
           if (err.status === 404) {
             alert('Форма с таким id не найдена :(')
@@ -42,7 +48,27 @@ export class FormPageComponent {
   }
 
   ngDoCheck(): void {
-    const data = this.formDataService.formData
+    this.#controlsIsFilled(this.formDataService.formData)
+    // console.log('doCheck')
+  }
+
+  sendDataHandler() {
+    this.loading = true
+    this.formDataService.saveForm().subscribe({
+      next: () => {
+        this.loading = false
+        this.changeDetector.detectChanges()
+        alert("Данные сохранены")
+      },
+      error: (err) => {
+        console.error(err)
+        this.loading = false
+        alert("Ошибка, не удалось сохранить форму")
+      }
+    })
+  }
+
+  #controlsIsFilled(data: FormData) {
     let isFilled = true
     if (data && data.length > 0) {
       data.forEach((el) => {
@@ -59,20 +85,15 @@ export class FormPageComponent {
     }
   }
 
-  sendDataHandler() {
-    this.loading = true
-    this.formDataService.saveForm().subscribe({
-      next: () => {
-        this.loading = false
-        alert("Данные сохранены")
-      },
-      error: (err) => {
-        console.error(err)
-        this.loading = false
-        alert("Ошибка, не удалось сохранить форму")
-      }
-    })
-  }
+  // #setControls(data: FormData) {
+  //   this.controls = data.reduce((acc, el, i) => {
+  //     if (el.type === 'input') {
+  //       acc[`${el.type}-${i}`] = new FormControl(el.value)
+  //     }
+  //     return acc
+  //   }, {} as { [type: string]: FormControl })
+  //   console.log(this.controls)
+  // }
 
 
 }

@@ -9,6 +9,7 @@
     width: 100%;
 
     & > div {
+      display: flex;
       padding: 0 .5rem 0 1rem;
       outline: none;
       border: none;
@@ -16,6 +17,8 @@
       height: 100%;
       width: 100%;
       max-width: 300px;
+      align-items: center;
+      margin: auto 0;
 
     }
   }

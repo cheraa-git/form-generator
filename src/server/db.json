@@ -13,7 +13,7 @@
           "type": "number",
           "label": "Возраст",
           "required": true,
-          "value": "20"
+          "value": "22"
         },
         {
           "type": "select",
@@ -23,7 +23,7 @@
             "Не женат / не замужем",
             "Женат / замужем"
           ],
-          "currentChoice": 0
+          "currentChoice": 1
         },
         {
           "type": "input",
@@ -31,7 +31,6 @@
           "description": "Укажите заведения, в которых вы учились",
           "placeholder": "Например ВолгГУ",
           "extraValues": [
-            "МАДИ",
             "МГУ"
           ],
           "value": "МИРЭА"
@@ -44,10 +43,9 @@
             "Астрахань",
             "Волгоград",
             "Саратов",
-            "Ростов-на-Дону",
-            "Саратов"
+            "Ростов-на-Дону"
           ],
-          "currentChoice": 4
+          "currentChoice": 1
         },
         {
           "type": "checkbox",
@@ -56,19 +54,19 @@
           "choices": [
             {
               "label": "Общение",
-              "checked": true
-            },
-            {
-              "label": "Иностранные языки",
-              "checked": true
-            },
-            {
-              "label": "Бег с препятствиями",
               "checked": false
             },
             {
-              "label": "Быстрое чтение",
+              "label": "Иностранные языки",
+              "checked": false
+            },
+            {
+              "label": "Бег с препятствиями",
               "checked": true
+            },
+            {
+              "label": "Быстрое чтение",
+              "checked": false
             },
             {
               "label": "Самозащита",
@@ -76,11 +74,11 @@
             },
             {
               "label": "Вождение",
-              "checked": true
+              "checked": false
             },
             {
               "label": "Программирование",
-              "checked": true
+              "checked": false
             },
             {
               "label": "Управление вертолетом",

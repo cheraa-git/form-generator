@@ -1,0 +1,5 @@
+<h2>Создание формы</h2>
+<div>
+  <button *ngFor="let type of inputTypes" (click)="createInput(type.type)">{{type.label}}</button>
+</div>
+

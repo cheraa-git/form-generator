@@ -14,7 +14,8 @@ import { NumberTypePipe } from './pipes/number-type.pipe';
 import { CheckboxTypePipe } from './pipes/checkbox-type.pipe';
 import { FormPageComponent } from './pages/form-page/form-page.component';
 import { StartPageComponent } from './pages/start-page/start-page.component'
-import { FormsModule } from "@angular/forms"
+import { FormsModule } from "@angular/forms";
+import { CreatePageComponent } from './pages/create-page/create-page.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from "@angular/forms"
     NumberTypePipe,
     CheckboxTypePipe,
     FormPageComponent,
-    StartPageComponent
+    StartPageComponent,
+    CreatePageComponent
   ],
   imports: [
     BrowserModule,

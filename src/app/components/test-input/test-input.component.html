@@ -1,6 +1,5 @@
 <div class="wrap">
   <div class="display">
-
     <p class="label">
       {{data.label}}<span *ngIf="data.required">*</span>
     </p>
@@ -15,6 +14,7 @@
           class="input"
           [(ngModel)]="data.value"
           [placeholder]="data.placeholder || ''"
+          (blur)="onBlur()"
 
         >
       </div>
@@ -22,7 +22,7 @@
         <input
           *ngIf="data.extraValues"
           class="input"
-          [value]="data.extraValues[i]"
+          [(ngModel)]="data.extraValues[i]"
           [placeholder]="data.placeholder || ''"
         >
         <div *ngIf="data.extraValues" class="remove-btn" (click)="removeExtraInput(i)">

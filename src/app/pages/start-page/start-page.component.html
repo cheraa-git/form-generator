@@ -1,13 +1,18 @@
 <div class="container">
   <div class="buttons">
     <button class="start-btn" (click)="setPageState('open')">Открыть существующую форму</button>
+    <button class="start-btn" routerLink="/create">Создать форму</button>
+
   </div>
 
   <div class="content" *ngIf="state === 'open'">
     <p>Введите ID формы</p>
     <div class="display">
       <input type="text" id="open-form-input">
-      <button (click)="openForm()">Открыть</button>
+      <div>
+        <button class="content-btn" (click)="openForm()">Открыть</button>
+      </div>
+
     </div>
   </div>
 

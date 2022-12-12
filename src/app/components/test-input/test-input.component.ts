@@ -25,10 +25,15 @@ export class TestInputComponent implements ControlValueAccessor {
     return index
   }
 
+  onBlur() {
+    console.log('blur')
+    this._onTouched()
+  }
+
   removeExtraInput(index: number) {
     this.data.extraValues = this.data.extraValues?.filter((_, i) => i !== index)
-    console.log(this.data.extraValues)
   }
+
 
   addExtraInput() {
     if (!this.data.extraValues) {

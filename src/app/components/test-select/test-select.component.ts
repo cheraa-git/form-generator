@@ -1,37 +1,25 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   HostListener,
-  Input,
-  Self
+  Input, OnInit,
 } from '@angular/core'
 import { SelectData } from "../../types"
-import { ControlValueAccessor, NgControl } from "@angular/forms"
 
 @Component({
   selector: 'app-test-select',
   templateUrl: './test-select.component.html',
   styleUrls: ['./test-select.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TestSelectComponent implements ControlValueAccessor {
-  private _onChange: (value: number) => void
-  private _onTouch: () => void
+export class TestSelectComponent implements OnInit {
   @Input() data: SelectData
-
-
+  listener: () => void
   selectIsOpen: boolean = false
   currChoice = ''
 
-
-  constructor(
-    private el: ElementRef,
-    @Self() private readonly ngControl: NgControl,
-    private readonly changeDetector: ChangeDetectorRef
-  ) {
-    this.ngControl.valueAccessor = this
+  constructor(private el: ElementRef) {
   }
 
 
@@ -45,28 +33,21 @@ export class TestSelectComponent implements ControlValueAccessor {
   }
 
 
+  ngOnInit() {
+    if (this.data.currentChoice !== undefined) {
+      this.currChoice = this.data.choices[this.data.currentChoice]
+    }
+  }
+
+
   setOpenState(state: boolean) {
     this.selectIsOpen = state
   }
 
   setCurrent(index: number) {
     this.data.currentChoice = index
+    this.currChoice = this.data.choices[index]
     this.selectIsOpen = false
   }
 
-  registerOnChange(fn: (value: number) => void) {
-    this._onChange = fn
-  }
-
-  registerOnTouched(fn: () => void) {
-    this._onTouch = fn
-  }
-
-  writeValue(value: number) {
-    if (value) {
-      this._onChange(value)
-      this.currChoice = this.data.choices[value]
-      this.changeDetector.detectChanges()
-    }
-  }
 }

@@ -1,4 +1,5 @@
-<div class="wrap display" >
+<div class="wrap display">
+  <p>{{testRender()}}</p>
   <p class="label">
     {{data.label}}<span *ngIf="data.required">*</span>
   </p>
@@ -8,20 +9,14 @@
       <div class="checkbox-square" (click)="onChange(i, choice)" [class.checked]="choice.checked">
         <img *ngIf="choice.checked" src="../../../assets/check.png" alt="check">
       </div>
-      <label>
-        <input type="checkbox" [checked]="choice.checked" (change)="onChange(i, choice)">
-        <span>{{choice.label}}</span>
-      </label>
+      <span>{{choice.label}}</span>
     </div>
 
     <div class="checkbox" *ngIf="data.choices.length > 1">
       <div class="checkbox-square" (click)="changeAll()" [class.checked]="allIsChecked">
         <img *ngIf="allIsChecked" src="../../../assets/check.png" alt="check">
       </div>
-      <label>
-        <input type="checkbox" (change)="changeAll()">
-        <span style="font-weight: 600">Выделить все</span>
-      </label>
+      <span style="font-weight: 600">Выделить все</span>
     </div>
 
   </div>
