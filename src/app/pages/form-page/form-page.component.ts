@@ -24,6 +24,12 @@ export class FormPageComponent {
   ) {
   }
 
+  testLogTitle() {
+    // console.log(this.form.title)
+    console.log(this.form)
+    return ''
+  }
+
   #fetchForm() {
     this.activeRoute.params.subscribe(param => {
       this.loading = true

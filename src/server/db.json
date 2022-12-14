@@ -2,6 +2,7 @@
   "forms": [
     {
       "id": "1",
+      "title": "Анкета",
       "data": [
         {
           "type": "input",
@@ -93,6 +94,7 @@
     },
     {
       "id": "2",
+      "title": "Анкета",
       "data": [
         {
           "type": "input",
@@ -181,6 +183,7 @@
     },
     {
       "id": "3",
+      "title": "Анкета",
       "data": [
         {
           "type": "input",

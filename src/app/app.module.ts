@@ -8,10 +8,6 @@ import { SelectComponent } from './components/controls/select/select.component';
 import { NumberComponent } from './components/controls/number/number.component';
 import { CheckboxComponent } from './components/controls/checkbox/checkbox.component';
 import { HttpClientModule } from "@angular/common/http";
-import { SelectTypePipe } from './pipes/select-type.pipe';
-import { InputTypePipe } from './pipes/input-type.pipe';
-import { NumberTypePipe } from './pipes/number-type.pipe';
-import { CheckboxTypePipe } from './pipes/checkbox-type.pipe';
 import { FormPageComponent } from './pages/form-page/form-page.component';
 import { StartPageComponent } from './pages/start-page/start-page.component'
 import { FormsModule } from "@angular/forms";
@@ -25,10 +21,6 @@ import { MultipleInputComponent } from './components/controls/multiple-input/mul
     SelectComponent,
     NumberComponent,
     CheckboxComponent,
-    SelectTypePipe,
-    InputTypePipe,
-    NumberTypePipe,
-    CheckboxTypePipe,
     FormPageComponent,
     StartPageComponent,
     CreatePageComponent,

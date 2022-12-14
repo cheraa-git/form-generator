@@ -1,8 +1,9 @@
 <div class="container">
-  <h1 class="title">Анкета</h1>
+
   <h1 *ngIf="loading">Loading...</h1>
 
   <div *ngIf="!loading">
+    <h1 class="title">{{form.title}}</h1>
     <div *ngFor="let item of form.data">
       <app-single-input [data]="item" *ngIf="item.type === 'input'"
                       [(ngModel)]="item.value"></app-single-input>

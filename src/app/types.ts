@@ -36,6 +36,7 @@ export interface CheckboxData extends rootItemData {
 export type FormData = (InputData | SelectData | NumberData | CheckboxData | MultipleInputData)[]
 
 export interface IForm {
-  id: string
+  id: string,
+  title: string,
   data: FormData
 }
