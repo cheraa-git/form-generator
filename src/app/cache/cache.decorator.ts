@@ -12,9 +12,7 @@ export function cachedRequest(
       const storage = cacheFactory.call(this)
       const key = `${prefix}+${JSON.stringify(args)}`
       let observable = storage[key]
-      console.log('cache')
       if (!!observable) return observable
-      console.log('request')
       observable = origin
         .apply(this, args)
         .pipe(shareReplay(1))

@@ -1,4 +1,4 @@
-<div class="wrap display">
+<div class="wrap flex">
   <p class="label">
     {{data.label}}<span *ngIf="data.required">*</span>
   </p>
@@ -7,6 +7,7 @@
     <div class="input">
       <div (click)="setOpenState(true)">{{currChoice}}</div>
     </div>
+
     <div class="select-options" *ngIf="selectIsOpen">
       <p
         *ngFor="let option of data.choices; let i = index"
@@ -17,6 +18,7 @@
       </p>
 
     </div>
+
   </div>
 </div>
 <p *ngIf="data.description" class="description">{{data.description}}</p>

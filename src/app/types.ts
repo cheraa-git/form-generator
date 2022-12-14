@@ -9,7 +9,11 @@ interface rootItemData {
 export interface InputData extends rootItemData {
   type: 'input'
   value?: string
-  extraValues?: string[]
+}
+
+export interface MultipleInputData extends rootItemData {
+  type: 'multiple-input'
+  values: string[]
 }
 
 export interface SelectData extends rootItemData {
@@ -28,7 +32,8 @@ export interface CheckboxData extends rootItemData {
   choices: { label: string, checked: boolean }[]
 }
 
-export type FormData = (InputData | SelectData | NumberData | CheckboxData)[]
+
+export type FormData = (InputData | SelectData | NumberData | CheckboxData | MultipleInputData)[]
 
 export interface IForm {
   id: string

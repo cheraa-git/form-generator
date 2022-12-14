@@ -24,7 +24,7 @@ export class FormPageComponent {
   ) {
   }
 
-  ngOnInit(): void {
+  #fetchForm() {
     this.activeRoute.params.subscribe(param => {
       this.loading = true
       this.formDataService.getForm(param['id']).subscribe({
@@ -45,13 +45,32 @@ export class FormPageComponent {
         }
       })
     })
+  }
 
+  #validateControls(data: FormData) {
+    let isFilled = true
+    if (data && data.length > 0) {
+      data.forEach((el) => {
+        if (!el.required) return
+        if (el.type === 'checkbox') {
+          isFilled = isFilled && !!el.choices.reduce((acc, choice) => acc + +choice.checked, 0)
+        } else if (el.type === 'select') {
+          isFilled = isFilled && el.currentChoice !== undefined
+        } else if (el.type === 'input' || el.type === 'number') {
+          isFilled = isFilled && !!el.value
+        }
+      })
+      this.formIsFilled = isFilled
+    }
+  }
 
+  ngOnInit(): void {
+    this.#fetchForm()
   }
 
   ngDoCheck(): void {
     if (this.form) {
-      this.#controlsIsFilled(this.form.data)
+      this.#validateControls(this.form.data)
     }
   }
 
@@ -71,33 +90,6 @@ export class FormPageComponent {
       }
     })
   }
-
-  #controlsIsFilled(data: FormData) {
-    let isFilled = true
-    if (data && data.length > 0) {
-      data.forEach((el) => {
-        if (!el.required) return
-        if (el.type === 'checkbox') {
-          isFilled = isFilled && !!el.choices.reduce((acc, choice) => acc + +choice.checked, 0)
-        } else if (el.type === 'select') {
-          isFilled = isFilled && el.currentChoice !== undefined
-        } else if (el.type === 'input' || el.type === 'number') {
-          isFilled = isFilled && !!el.value
-        }
-      })
-      this.formIsFilled = isFilled
-    }
-  }
-
-  // #setControls(data: FormData) {
-  //   this.controls = data.reduce((acc, el, i) => {
-  //     if (el.type === 'input') {
-  //       acc[`${el.type}-${i}`] = new FormControl(el.value)
-  //     }
-  //     return acc
-  //   }, {} as { [type: string]: FormControl })
-  //   console.log(this.controls)
-  // }
 
 
 }

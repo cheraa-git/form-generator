@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
-import { CheckboxData } from "../../types"
+import { CheckboxData } from "../../../types"
 
 @Component({
-  selector: 'app-test-checkbox',
-  templateUrl: './test-checkbox.component.html',
-  styleUrls: ['./test-checkbox.component.scss'],
+  selector: 'app-checkbox',
+  templateUrl: './checkbox.component.html',
+  styleUrls: ['./checkbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
-export class TestCheckboxComponent implements OnInit {
+export class CheckboxComponent implements OnInit {
   @Input() data: CheckboxData
   allIsChecked: boolean
   numberOfChecked: number

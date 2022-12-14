@@ -1,0 +1,17 @@
+<div class="wrap flex">
+  <p class="label">
+    {{data.label}}<span *ngIf="data.required">*</span>
+  </p>
+
+  <div class="default-input">
+    <input
+      class="input"
+      [(ngModel)]="data.value"
+      [placeholder]="data.placeholder || ''"
+    >
+  </div>
+</div>
+
+<p *ngIf="data.description" class="description">{{data.description}}</p>
+
+

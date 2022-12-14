@@ -7,13 +7,13 @@
           "type": "input",
           "label": "Имя",
           "required": true,
-          "value": "Alex"
+          "value": "Александр"
         },
         {
           "type": "number",
           "label": "Возраст",
           "required": true,
-          "value": "22"
+          "value": "20"
         },
         {
           "type": "select",
@@ -23,17 +23,16 @@
             "Не женат / не замужем",
             "Женат / замужем"
           ],
-          "currentChoice": 1
+          "currentChoice": 0
         },
         {
-          "type": "input",
+          "type": "multiple-input",
           "label": "ВУЗ",
           "description": "Укажите заведения, в которых вы учились",
           "placeholder": "Например ВолгГУ",
-          "extraValues": [
-            "МГУ"
-          ],
-          "value": "МИРЭА"
+          "values": [
+            "МИРЭА"
+          ]
         },
         {
           "type": "select",
@@ -45,7 +44,7 @@
             "Саратов",
             "Ростов-на-Дону"
           ],
-          "currentChoice": 1
+          "currentChoice": 3
         },
         {
           "type": "checkbox",
@@ -54,15 +53,15 @@
           "choices": [
             {
               "label": "Общение",
-              "checked": false
+              "checked": true
             },
             {
               "label": "Иностранные языки",
-              "checked": false
+              "checked": true
             },
             {
               "label": "Бег с препятствиями",
-              "checked": true
+              "checked": false
             },
             {
               "label": "Быстрое чтение",
@@ -74,11 +73,11 @@
             },
             {
               "label": "Вождение",
-              "checked": false
+              "checked": true
             },
             {
               "label": "Программирование",
-              "checked": false
+              "checked": true
             },
             {
               "label": "Управление вертолетом",
@@ -86,7 +85,7 @@
             },
             {
               "label": "Оперное пение",
-              "checked": true
+              "checked": false
             }
           ]
         }
@@ -115,10 +114,13 @@
           ]
         },
         {
-          "type": "input",
+          "type": "multiple-input",
           "label": "ВУЗ",
           "description": "Укажите заведения, в которых вы учились",
-          "placeholder": "Например ВолгГУ"
+          "placeholder": "Например ВолгГУ",
+          "values": [
+            ""
+          ]
         },
         {
           "type": "select",
@@ -200,10 +202,13 @@
           ]
         },
         {
-          "type": "input",
+          "type": "multiple-input",
           "label": "ВУЗ",
           "description": "Укажите заведения, в которых вы учились",
-          "placeholder": "Например ВолгГУ"
+          "placeholder": "Например ВолгГУ",
+          "values": [
+            ""
+          ]
         },
         {
           "type": "select",

@@ -11,21 +11,8 @@
   align-items: center;
 }
 
-.start-btn {
-  border: 1px solid #ccc;
-  height: 3rem;
-  background: #FFE783;
+.btn {
   margin: 1rem;
-  font-size: 14px;
-  padding: 0 .5rem;
-  align-items: center;
-  text-decoration: none;
-
-  &:hover {
-    background: #FBE891;
-    color: #4C452B;
-    cursor: pointer;
-  }
 }
 
 .content {
@@ -44,11 +31,4 @@
     margin-bottom: 1rem;
   }
 
-  button {
-    height: 30px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    background: rgb(255, 239, 175);
-
-  }
 }

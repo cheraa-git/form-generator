@@ -19,7 +19,6 @@ export class FormDataService {
     return this.cache
   })
   getForm(formId: string) {
-    console.log('getForm')
     return this.http.get<IForm>(`http://localhost:3000/forms/${formId}`)
   }
 

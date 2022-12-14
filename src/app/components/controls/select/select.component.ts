@@ -5,15 +5,15 @@ import {
   HostListener,
   Input, OnInit,
 } from '@angular/core'
-import { SelectData } from "../../types"
+import { SelectData } from "../../../types"
 
 @Component({
-  selector: 'app-test-select',
-  templateUrl: './test-select.component.html',
-  styleUrls: ['./test-select.component.scss'],
+  selector: 'app-select',
+  templateUrl: './select.component.html',
+  styleUrls: ['./select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TestSelectComponent implements OnInit {
+export class SelectComponent implements OnInit {
   @Input() data: SelectData
   listener: () => void
   selectIsOpen: boolean = false
@@ -25,6 +25,7 @@ export class TestSelectComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {
+
     const select = this.el.nativeElement.querySelector('.select-options')
     const input = this.el.nativeElement.querySelector('.input')
     if (input && select && !input.contains(event.target) && !select.contains(event.target)) {

@@ -4,17 +4,17 @@
 
   <div *ngIf="!loading">
     <div *ngFor="let item of form.data">
-      <app-test-input [data]="item | inputType" *ngIf="item.type === 'input'"
-                      [(ngModel)]="item.value"></app-test-input>
+      <app-single-input [data]="item" *ngIf="item.type === 'input'"
+                      [(ngModel)]="item.value"></app-single-input>
+      <app-multiple-input [data]="item" *ngIf="item.type === 'multiple-input'"></app-multiple-input>
+      <app-number [data]="item" *ngIf="item.type === 'number'"
+                       [(ngModel)]="item.value"></app-number>
 
-      <app-test-number [data]="item | numberType" *ngIf="item.type === 'number'"
-                       [(ngModel)]="item.value"></app-test-number>
+      <app-select [data]="item " *ngIf="item.type === 'select'"></app-select>
 
-      <app-test-select [data]="item | selectType " *ngIf="item.type === 'select'"></app-test-select>
-
-      <app-test-checkbox [data]="item | checkboxType" *ngIf="item.type === 'checkbox'"></app-test-checkbox>
+      <app-checkbox [data]="item" *ngIf="item.type === 'checkbox'"></app-checkbox>
     </div>
-    <button class="send-button btn-disabled"
+    <button class="btn"
             (click)="sendDataHandler()"
             [class.btn-disabled]="!formIsFilled"
             [disabled]="!formIsFilled"

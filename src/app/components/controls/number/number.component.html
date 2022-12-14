@@ -1,4 +1,4 @@
-<div class="wrap display">
+<div class="wrap flex">
   <p class="label">
     {{data.label}}<span *ngIf="data.required">*</span>
   </p>
@@ -6,11 +6,12 @@
          [placeholder]="data.placeholder || ''">
   <div class="input-controls">
     <button (click)="setValue(1)">
-      <img src="../../../assets/caret-up.svg" alt="sort-up">
+      <img src="../../../../assets/caret-up.svg" alt="caret-up">
     </button>
     <button>
-      <img (click)="setValue(-1)" src="../../../assets/caret-down.svg" alt="sort-up">
+      <img (click)="setValue(-1)" src="../../../../assets/caret-down.svg" alt="caret-down">
     </button>
   </div>
 </div>
+
 <p *ngIf="data.description" class="description">{{data.description}}</p>

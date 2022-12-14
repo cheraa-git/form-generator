@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, Self } from '@angular/core'
-import { NumberData } from "../../types"
+import { NumberData } from "../../../types"
 import { ControlValueAccessor, NgControl } from "@angular/forms"
 
 @Component({
-  selector: 'app-test-number',
-  templateUrl: './test-number.component.html',
-  styleUrls: ['./test-number.component.scss'],
+  selector: 'app-number',
+  templateUrl: './number.component.html',
+  styleUrls: ['./number.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TestNumberComponent implements OnInit, ControlValueAccessor {
+export class NumberComponent implements OnInit, ControlValueAccessor {
   private _onChange: (value: string) => void
   private _onTouch: () => void
   @Input() data: NumberData
