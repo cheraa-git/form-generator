@@ -1,40 +1,35 @@
 import { Injectable } from '@angular/core'
-import { FormData, IForm } from "../types"
-import { Observable, tap } from "rxjs"
+import { IForm } from "../types"
+import { Observable } from "rxjs"
 import { HttpClient } from "@angular/common/http"
+import { CacheService } from "../cache/cache.service"
+import { cachedRequest } from "../cache/cache.decorator"
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormDataService {
-  formData: FormData
-  formId: string
-  errorMessage: string
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private readonly cache: CacheService) {
   }
 
-  fetchData(formId: string): Observable<IForm> {
+
+  @cachedRequest(function (this) {
+    return this.cache
+  })
+  getForm(formId: string) {
+    console.log('getForm')
     return this.http.get<IForm>(`http://localhost:3000/forms/${formId}`)
-      .pipe(
-        tap((data) => {
-          this.formData = data.data
-          this.formId = data.id
-        }),
-      )
   }
 
-  saveForm(): Observable<IForm> {
-    return this.http.patch<IForm>(`http://localhost:3000/forms/${this.formId}`, {
-      "id": this.formId,
-      data: this.formData
+
+  saveForm(form: IForm): Observable<IForm> {
+    return this.http.patch<IForm>(`http://localhost:3000/forms/${form.id}`, {
+      "id": form.id,
+      data: form.data
     })
-      .pipe(
-        tap(data => {
-          this.formData = data.data
-        }),
-      )
+
   }
 
 }

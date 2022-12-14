@@ -7,7 +7,7 @@
           "type": "input",
           "label": "Имя",
           "required": true,
-          "value": "Александр"
+          "value": "Alex"
         },
         {
           "type": "number",

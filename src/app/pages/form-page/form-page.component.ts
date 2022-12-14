@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core'
 import { FormDataService } from "../../services/form-data.service"
 import { ActivatedRoute, Router } from "@angular/router"
-import { FormData } from "../../types"
+import { FormData, IForm } from "../../types"
 
 @Component({
   selector: 'app-form-page',
@@ -14,9 +14,10 @@ import { FormData } from "../../types"
 export class FormPageComponent {
   loading = false
   formIsFilled: boolean = true
+  form: IForm
 
   constructor(
-    public formDataService: FormDataService,
+    private formDataService: FormDataService,
     private activeRoute: ActivatedRoute,
     private router: Router,
     private readonly changeDetector: ChangeDetectorRef
@@ -26,9 +27,10 @@ export class FormPageComponent {
   ngOnInit(): void {
     this.activeRoute.params.subscribe(param => {
       this.loading = true
-      this.formDataService.fetchData(param['id']).subscribe({
-        next: () => {
+      this.formDataService.getForm(param['id']).subscribe({
+        next: (form) => {
           this.loading = false
+          this.form = form
           this.changeDetector.detectChanges()
         },
         error: (err) => {
@@ -48,14 +50,16 @@ export class FormPageComponent {
   }
 
   ngDoCheck(): void {
-    this.#controlsIsFilled(this.formDataService.formData)
-    // console.log('doCheck')
+    if (this.form) {
+      this.#controlsIsFilled(this.form.data)
+    }
   }
 
   sendDataHandler() {
     this.loading = true
-    this.formDataService.saveForm().subscribe({
-      next: () => {
+    this.formDataService.saveForm(this.form).subscribe({
+      next: (form) => {
+        this.form = form
         this.loading = false
         this.changeDetector.detectChanges()
         alert("Данные сохранены")

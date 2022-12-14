@@ -13,10 +13,6 @@ export class TestCheckboxComponent implements OnInit {
   allIsChecked: boolean
   numberOfChecked: number
 
-  testRender() {
-    // console.log('render')
-    return 'render'
-  }
   onChange(index: number, choice: { label: string, checked: boolean }) {
     this.data.choices[index].checked = !choice.checked
     this.ngOnInit()
